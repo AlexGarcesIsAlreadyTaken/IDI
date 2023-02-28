@@ -68,7 +68,7 @@ Existeixen dues classes Qt que usarem pels shaders
 - **QOpenGLShader**
 - **QOpenGLShaderProgram**
 
-``` C
+``` glsl
 QOpenGLShader fs (QOpenGLShader::Fragment, this);
 QOpenGLShader vs (QOpensGLShader::Vertex, this);    // Creen els FS i VS
 
@@ -89,7 +89,7 @@ Cal indicar com passar la informació al shader. \
 S'han d'enllaçar els atributs del shader a la nostra classe, obtenir la posició de l'atribut
 a través del nom. \
 
-``` C
+``` glsl
 vertexLoc = glGetAttribLocation (program->programID(), "vertex");
 
 // glGetAttribLocation(GLuint program, const GLchar *name)

@@ -64,7 +64,7 @@ com un ```return``` i descarta el fragment
 
 # ESQUELET COMPLET
 
-Existeixen dues classes Qt que usarem pels shaders
+Existeixen dues classes _qt_ que usarem pels shaders
 - **QOpenGLShader**
 - **QOpenGLShaderProgram**
 
@@ -85,15 +85,23 @@ program->link();
 program->bind();
 ```
 
-Cal indicar com passar la informació al shader. \
+Cal indicar com passar la informació al shader.\
 S'han d'enllaçar els atributs del shader a la nostra classe, obtenir la posició de l'atribut
-a través del nom. \
+a través del nom.
 
 ``` glsl
-vertexLoc = glGetAttribLocation (program->programID(), "vertex");
-
-// glGetAttribLocation(GLuint program, const GLchar *name)
+glGetAttribLocation(GLuint program, const GLchar *name)
 ```
 > program: Identificador del programa \
 > name: nom de l'atribut en el VS
+
+``` glsl
+GLuint vertexLoc = glGetAttribLocation(program->programID(), "vertex");
+...
+...
+...
+glVertexAttribPointer(vertexLoc, 3, GL_FLOAT, GL_FALSE, 0, 0);
+glEnableVertexAttribArray(vertexLoc);
+```
+
 
